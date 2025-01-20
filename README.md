@@ -1,1 +1,1 @@
-# yogaletes
+# Yogalates
