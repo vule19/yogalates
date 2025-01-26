@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { SelectedPage } from "@/shared/types";
 import { motion } from "framer-motion";
-import ContactUsPageGraphic from "@assets/ContactUsPageGraphic.png";
+import ContactUsPageGraphic from "@/assets/ContactUsPageGraphic.png";
 import HText from "@/shared/HText";
 
 type Props = {
@@ -9,7 +9,8 @@ type Props = {
 }
 
 const ContactUs = ({ setSelectedPage }: Props) => {
-    const inputStyles = `w-fullrounded-lg bg-primary-300 px-5 py-3 placeholder-white`;
+    const inputStyles = `mb-5 w-full rounded-lg bg-primary-300
+    px-5 py-3 placeholder-white`;
 
     const {
         register,
@@ -62,7 +63,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                     <form
                         target="_blank"
                         onSubmit={onSubmit}
-                        action="https://formsubmit.co/annale19122000@gmail.com"
+                        action="https://formsubmit.co/9db26fad0773830a6f277bb9cc8484b3"
                         method="POST"
                     >
                         <input 
@@ -99,9 +100,10 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                             </p>
                         )}
                         
-                        <input 
+                        <textarea 
                             className={inputStyles}
-                            type="text"
+                            rows={4}
+                            cols={50}
                             placeholder="MESSAGES"
                             {...register("message", {
                                 required: true,
@@ -115,7 +117,26 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                                 {errors.message.type === "maxLength" && "Max length is 2000 characters."}
                             </p>
                         )}
+
+                        <button
+                            type="submit"
+                            className="mt-5 rounded0lg bg-secondary-500 px-20 py-3 transition duration-500 hover:text-white"
+                        >
+                            SUBMIT
+                        </button>
                     </form>
+                    <motion.div
+                        className="relative mt-16 basis-2/5 md:mt-0"
+                        initial="hidden" 
+                        whileInView="visible" 
+                        viewport={{ once: true, amount: 0.5 }} 
+                        transition={{ duration: 0.5 }}
+                        variants={{
+                            hidden: {opacity: 0, x: 50},
+                            visible: {opacity: 1, x: 0},
+                        }}
+                    >
+                    </motion.div>
                 </motion.div>
             </div>
         </motion.div>
