@@ -1,12 +1,45 @@
-import { SelectedPage } from "@/shared/types";
-import image1 from "@/assets/image1.png";
-import image2 from "@/assets/image2.png";
-import image3 from "@/assets/image3.png";
-import image4 from "@/assets/image4.png";
-import image5 from "@/assets/image5.png";
-import image6 from "@/assets/image6.png";
+import { ClassType, SelectedPage } from "@/shared/types";
+import image1 from "@/assets/image1.jpg";
+import image2 from "@/assets/image2.jpg";
+import image3 from "@/assets/image3.jpg";
+import image4 from "@/assets/image4.jpg";
+import image5 from "@/assets/image5.jpg";
+import image6 from "@/assets/image6.jpg";
 import { motion } from "framer-motion";
 import HText from "@/shared/HText";
+import Class from "./Class";
+
+const classes: Array<ClassType> = [
+    {
+        name: "Core Classes",
+        description: "Join us for a session that nurtures your mind and body, leaving you feeling refreshed, revitalized, and centered. Perfect for beginners and experienced practitioners alike, Yogalates is your pathway to a stronger, healthier you!",
+        image: image1,
+    },
+    {
+        name: "Weight Tranining Classes",
+        description: "Join us for a session that nurtures your mind and body, leaving you feeling refreshed, revitalized, and centered. Perfect for beginners and experienced practitioners alike, Yogalates is your pathway to a stronger, healthier you!",
+        image: image2,
+    },
+    {
+        name: "Ab Classes",
+        image: image3,
+    },
+    {
+        name: "Core Classes",
+        description: "Join us for a session that nurtures your mind and body, leaving you feeling refreshed, revitalized, and centered. Perfect for beginners and experienced practitioners alike, Yogalates is your pathway to a stronger, healthier you!",
+        image: image4,
+    },
+    {
+        name: "Fitness Classes",
+        description: "Join us for a session that nurtures your mind and body, leaving you feeling refreshed, revitalized, and centered. Perfect for beginners and experienced practitioners alike, Yogalates is your pathway to a stronger, healthier you!",
+        image: image5,
+    },
+    {
+        name: "Tranining Classes",
+        description: "Join us for a session that nurtures your mind and body, leaving you feeling refreshed, revitalized, and centered. Perfect for beginners and experienced practitioners alike, Yogalates is your pathway to a stronger, healthier you!",
+        image: image6,
+    },
+]
 
 type Props = {
     setSelectedPage: (value: SelectedPage) => void;
@@ -36,7 +69,18 @@ const OurClasses = ({setSelectedPage}: Props) => {
                     </p>
                 </div>
             </motion.div>
-            <div></div>
+            <div className="mt-10 h-[353px] w-full overflow-x-auto overflow-y-hidden">
+                <ul className="w-[2800px] whitespace-nowrap">
+                    {classes.map((item: ClassType, index) => (
+                        <Class
+                            key={`${item.name}-${index}`}
+                            name={item.name}
+                            description={item.description}
+                            image={item.image}
+                        />
+                    ))}
+                </ul>
+            </div>
         </motion.div>
     </section>
   )
